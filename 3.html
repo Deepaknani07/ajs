@@ -1,0 +1,59 @@
+<!doctype html>
+<html ng-app="calculatorApp">
+<head>
+<title>calulator APP</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+input [type="text"]{
+    width:200px;
+   margin-bottom:10px;
+
+}
+</style>
+</head>
+<body>
+    <h1><marquee>prog#3</marquee></h1>
+    <center><h2>svce</h2>
+    <h3>dept.of ISE</h3>
+    <h4>angular js code the simple calculator on the webpage</h4>
+    </center><hr>
+<div ng-controller="calculatorController">
+<h2>calculator app</h2>
+enter the number1:<input type="number" ng-model="operand1" placeholder="enter the operand1">
+<br>
+enter the number2:<input type="number" ng-model="operand2" placeholder="enter the operand2">
+<br>
+<button ng-click="addt()">Add</button>
+<button ng-click="subtract()">Subtract</button>
+<button ng-click="multiply()">Multiply</button>
+<button ng-click="divide()">Divide</button>
+<br>
+<strong>Result:{{result}}</strong>
+</div>
+<script>var app=angular.module('calculatorApp',[])
+app.controller('calculatorController',function($scope)
+{
+$scope.operand1=0;
+$scope.operand2=0;
+$scope.result=0;
+$scope.addt=function(){
+    $scope.result=$scope.operand1+$scope.operand2;
+};
+$scope.subtract=function(){
+    $scope.result=$scope.operand1-$scope.operand2;
+};
+$scope.multiply=function(){
+    $scope.result=$scope.operand1*$scope.operand2;
+};
+$scope.divide=function(){
+    if($scope.operand2!==0){
+        $scope.result=$scope.operand1/$scope.operand2;
+    }else{
+        alert("cannot divide by zero");
+    }
+};
+
+});
+</script>
+</body>
+</html>
