@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="calculatorApp">
+<head>
+<title>calulator APP</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+input [type="text"]{
+    width:200px;
+   margin-bottom:10px;
+
+}
+</style>
+</head>
+<body>
+    <h1><marquee>prog#3</marquee></h1>
+    <center><h2>svce</h2>
+    <h3>dept.of ISE</h3>
+    <h4>angular js code the simple calculator on the webpage</h4>
+    </center><hr>
+<div ng-controller="calculatorController">
+    <h2>factorial and square</h2>
+    <label for="numberInput">Enter the number:</label>
+    <input type="number" id="numberInput" ng-model="userInput" placeholder="enter the number">
+    <br>
+    <button ng-click="calculateFactorial()">factorial</button>
+    <button ng-click="calculateSquare()">square</button>
+    <br>
+    <p ng-show="result!===undefined">Result:{{result}}</p>
+</div>
+<script>var app=angular.module('calculatorApp',[])
+app.controller('calculatorController',function($scope)
+{
+    $scope.userInput=0;
+    $scope.result=undefined;
+    $scope.calculateFactorial=function(){
+        $scope.result=undefined;
+        if($scope.userInput>=0){
+            $scope.result=getFactorial($scope.userInput);
+        }else{
+            alert("factorial is undefined for negative numbers")
+        }
+    };
+$scope.calculateSquare=function(){
+    $scope.result=$scope.userInput*$scope.userInput;
+};
+    function getFactorial(number)
+    {
+        if(number == 0 || number == 1){
+            return 1;
+        }
+        return number*getFactorial(number-1);
+    };
+});
+</script>
+</body>
+</html>
