@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+    <title>create the angular js webpage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+<body bgcolor="black" text="white">
+<h1><marquee>prog#1</marquee></h1>
+<center><h2>svce</h2>
+<h3>dept.of ISE</h3>
+<h4>angular js code the message on the webpage</h4>
+<div ng-controller="myController">
+<h2> welcome to angular js</h2>
+<p> dynamic content</p>
+<p>enter the first name:<input type="text" ng-model="fname"></p>
+<p>enter the second name:<input type="text" ng-model="lname"></p>
+<p> hello,{{fname}} {{lname}}</p>
+</div>
+<script>angular.module('myApp',[]).controller('myController',function($scope){
+    $scope.fname="User";
+    $scope.lname="User";
+});
+</script>
+</body>
+</html>
+
