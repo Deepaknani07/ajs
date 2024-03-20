@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="studentApp">
+    <head>
+    <title>student details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+<body >
+<h1><marquee>prog#1</marquee></h1>
+<center><h2>svce</h2>
+<h3>dept.of ISE</h3>
+<h4>angular js code the student details on the webpage</h4>
+</center><hr>
+<div ng-controller="studentController">
+    <h2>student details</h2>
+    <label >number of students</label>
+    <input type="text" ng-model="numberOfStudents" min="1" required>
+    <button ng-click="generateStudentDetails()">Generate Details</button>
+   
+    <h3>Student Count: {{ studentDetails.length}}</h3>
+    <ul>
+        <li ng-repeat="student in studentDetails">
+            <strong>{{ student.name }}</strong>
+            -CGPA:{{ student.cgpa }}
+        </li>
+    </ul>
+
+
+</div>
+<script>
+    var app=angular.module('studentApp',[])
+    .controller('studentController',function($scope){
+        $scope.studentDetails=[];
+        var staticStudentDetails=[
+            {name:'deeapk',cgpa:'8.9'},
+            {name:'deeak',cgpa:'8.9'},
+            {name:'depk',cgpa:'8.9'},
+            {name:'deepk',cgpa:'8.9'},
+            {name:'deapk',cgpa:'8.9'},
+
+        ];
+        $scope.generateStudentDetails=function()
+        {
+            $scope.studentDetails=staticStudentDetails.slice(0,$scope.numberOfStudents);
+        };
+    });
+</script>
+</body>
+</html>
